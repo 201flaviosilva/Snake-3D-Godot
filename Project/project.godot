@@ -18,6 +18,10 @@ config/name="Snake 3D"
 run/main_scene="res://Scenes/Game2D.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GLOBALS="*res://GLOBALS.gd"
+
 [display]
 
 window/size/width=1280
