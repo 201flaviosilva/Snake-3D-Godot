@@ -1,13 +1,11 @@
-# Godot Repository Template
+# Snake 3D Godot
 
 ## Description
 
-Um simple repositório template para projetos em Godot
+A snake game
 
 ## Links
 
-- [Play](https://master.d3kjckivyd1c76.amplifyapp.com);
-- [Code](https://github.com/201flaviosilva-labs/Godot-Repository-Template);
-	- [Bitbucket - Godot Project](https://bitbucket.org/201flaviosilva/workspace/projects/GODOT/);
+- [Play](https://201flaviosilva-labs.github.io/Snake-3D-Godot);
+- [Code](https://github.com/201flaviosilva-labs/Snake-3D-Godot);
 - [Godot Official Web Site](https://godotengine.org/);
-- [Tutorial]();

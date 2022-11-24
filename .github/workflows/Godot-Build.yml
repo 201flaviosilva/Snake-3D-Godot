@@ -6,15 +6,10 @@ on:
   push:
     branches:
       - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
 
 env:
   GODOT_VERSION: 3.5.1
-  EXPORT_NAME: Template # Project Name
+  EXPORT_NAME: Snake-3D # Project Name
   FOLDER_PATH: Project
 
 jobs:
