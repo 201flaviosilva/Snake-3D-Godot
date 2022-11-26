@@ -1,16 +1,6 @@
 extends Area2D
 
-var currentColor = ""
-
-var possible_colors = [
-#	{"name": "Blue", "texture": preload("res://Assets/Circles/Blue.png")},
-	{"name": "Cyan", "texture": preload("res://Assets/Circles/Cyan.png")},
-	{"name": "Green", "texture": preload("res://Assets/Circles/Green.png")},
-	{"name": "Pink", "texture": preload("res://Assets/Circles/Pink.png")},
-	{"name": "Red", "texture": preload("res://Assets/Circles/Red.png")},
-	{"name": "White", "texture": preload("res://Assets/Circles/White.png")},
-	{"name": "Yellow", "texture": preload("res://Assets/Circles/Yellow.png")}
-]
+var currentColor = Color(1, 1, 1, 1)
 
 var rng = RandomNumberGenerator.new()
 
@@ -20,9 +10,8 @@ func _ready() -> void:
 	_randomize_position()
 
 func _random_texture() -> void:
-	var index = rng.randi_range(0, possible_colors.size() - 1)
-	currentColor = possible_colors[index]["name"]
-	$Sprite.texture = possible_colors[index]["texture"]
+	currentColor =  Color(rng.randf(), rng.randf(), rng.randf(), 1)
+	$Sprite.modulate = currentColor
 
 func _randomize_position() -> void:
 	var width = ProjectSettings.get_setting("display/window/size/width")
@@ -38,10 +27,9 @@ func _randomize_position() -> void:
 	y = clamp(y, half_cell, height - half_cell)
 	global_position = Vector2(x, y)
 
-
 func _on_Apple_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player") and area.is_in_group("body"): _randomize_position()
 
-func destroy() -> String:
+func destroy() -> Color:
 	queue_free()
 	return currentColor

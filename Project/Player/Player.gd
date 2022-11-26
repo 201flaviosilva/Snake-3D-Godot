@@ -49,7 +49,7 @@ func _set_speed(value: float) -> void:
 	move_timer.wait_time = speed
 	move_timer.start()
 
-func _add_body(new_body_color: String) -> PackedScene:
+func _add_body(new_body_color: Color) -> PackedScene:
 	var new_body = BodyPart.instance()
 	if new_body.has_method("change_texture"): new_body.call_deferred("change_texture", new_body_color)
 	body.append(new_body)

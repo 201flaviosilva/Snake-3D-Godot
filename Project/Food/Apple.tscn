@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Food/Apple.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Circles/Red.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Circles/White.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0
