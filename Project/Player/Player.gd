@@ -49,15 +49,16 @@ func _set_speed(value: float) -> void:
 	move_timer.wait_time = speed
 	move_timer.start()
 
-func _add_body() -> PackedScene:
+func _add_body(new_body_color: String) -> PackedScene:
 	var new_body = BodyPart.instance()
+	if new_body.has_method("change_texture"): new_body.call_deferred("change_texture", new_body_color)
 	body.append(new_body)
 	return new_body
 
 func _on_Player_area_entered(area: Area2D) -> void:
 	if area.is_in_group("food"):
-		var new_body = _add_body()
-		area.call_deferred("_randomize_position")
+		var new_body_color = area.destroy()
+		var new_body = _add_body(new_body_color)
 		emit_signal("food_eated", new_body, Vector2(-100, -100))
 	elif area.is_in_group("body"):
 		get_tree().reload_current_scene()

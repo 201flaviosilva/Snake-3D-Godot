@@ -39,9 +39,16 @@ valign = 1
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 656, 368 )
 
-[node name="Apple" parent="." instance=ExtResource( 2 )]
-position = Vector2( 944, 368 )
-
 [node name="BodyPartsContainer" type="Node2D" parent="."]
 
+[node name="FoodContainer" type="Node2D" parent="."]
+
+[node name="Apple" parent="FoodContainer" instance=ExtResource( 2 )]
+position = Vector2( 944, 368 )
+
+[node name="NewFood" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="food_eated" from="Player" to="." method="_on_Player_food_eated"]
+[connection signal="timeout" from="NewFood" to="." method="_on_NewFood_timeout"]
