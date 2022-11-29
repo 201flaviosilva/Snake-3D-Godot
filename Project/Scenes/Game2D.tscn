@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Food/Apple.tscn" type="PackedScene" id=2]
@@ -8,6 +8,38 @@
 [sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 50 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_fonts/font:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 0.176777, 10.5561 ),
+"update": 0,
+"values": [ 50, 35 ]
+}
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -35,12 +67,10 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="Background" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 704.0
-color = Color( 0, 0.741176, 0.239216, 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pause"]
+autoplay = "idle"
+anims/RESET = SubResource( 3 )
+anims/idle = SubResource( 4 )
 
 [node name="Score" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )

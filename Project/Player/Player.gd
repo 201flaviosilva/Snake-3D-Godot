@@ -62,7 +62,6 @@ func _add_body(new_body_color: Color) -> PackedScene:
 
 func _body_gradient_color() -> void:
 	var color_steep = 1 / float(body.size())
-	print(color_steep)
 	
 	for i in range(body.size()):
 		var value = color_steep * (i + 1);
