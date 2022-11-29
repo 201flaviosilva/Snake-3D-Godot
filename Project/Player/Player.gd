@@ -1,6 +1,8 @@
 extends Area2D
 
 signal food_eated
+signal dead
+
 export (float, 0.1, 1) var normal_speed: float = 0.2
 
 var direction: Vector2 = Vector2.RIGHT
@@ -11,8 +13,10 @@ var body = []
 
 func _ready() -> void:
 	_set_speed(normal_speed)
+	pass
 
 func _process(delta: float) -> void:
+	if get_tree().paused: return
 	if Input.is_action_just_pressed("up") and not direction == Vector2.DOWN: direction = Vector2.UP
 	if Input.is_action_just_pressed("down") and not direction == Vector2.UP: direction = Vector2.DOWN
 	if Input.is_action_just_pressed("left") and not direction == Vector2.RIGHT: direction = Vector2.LEFT
@@ -22,6 +26,7 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released("run"): _set_speed(normal_speed)
 
 func _on_Move_timeout() -> void:
+	if get_tree().paused: return
 	for i in range(body.size() - 1, 0, -1):
 		body[i].global_position = body[i - 1].global_position
 		
@@ -55,10 +60,20 @@ func _add_body(new_body_color: Color) -> PackedScene:
 	body.append(new_body)
 	return new_body
 
+func _body_gradient_color() -> void:
+	var color_steep = 1 / float(body.size())
+	print(color_steep)
+	
+	for i in range(body.size()):
+		var value = color_steep * (i + 1);
+		var c = Color(0, 0, value, 1)
+		body[i].call_deferred("change_texture", c)
+
 func _on_Player_area_entered(area: Area2D) -> void:
 	if area.is_in_group("food"):
 		var new_body_color = area.destroy()
 		var new_body = _add_body(new_body_color)
 		emit_signal("food_eated", new_body, Vector2(-100, -100))
+		_body_gradient_color()
 	elif area.is_in_group("body"):
-		get_tree().reload_current_scene()
+		emit_signal("dead")
