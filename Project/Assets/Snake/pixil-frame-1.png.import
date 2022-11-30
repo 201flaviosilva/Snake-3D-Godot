@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Red.png-26285432dad651540a57736a054fa5a7.stex"
+path="res://.import/pixil-frame-1.png-28287656e1a2aa4aa431b73abaeb443d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Squares/Red.png"
-dest_files=[ "res://.import/Red.png-26285432dad651540a57736a054fa5a7.stex" ]
+source_file="res://Assets/Snake/pixil-frame-1.png"
+dest_files=[ "res://.import/pixil-frame-1.png-28287656e1a2aa4aa431b73abaeb443d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

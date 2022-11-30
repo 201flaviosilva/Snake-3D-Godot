@@ -17,10 +17,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if get_tree().paused: return
-	if Input.is_action_just_pressed("up") and not direction == Vector2.DOWN: direction = Vector2.UP
-	if Input.is_action_just_pressed("down") and not direction == Vector2.UP: direction = Vector2.DOWN
-	if Input.is_action_just_pressed("left") and not direction == Vector2.RIGHT: direction = Vector2.LEFT
-	if Input.is_action_just_pressed("right") and not direction == Vector2.LEFT: direction = Vector2.RIGHT
+	
+	if Input.is_action_just_pressed("up") and not direction == Vector2.DOWN: 
+		direction = Vector2.UP
+		$Sprite.rotation_degrees = -90
+	if Input.is_action_just_pressed("down") and not direction == Vector2.UP: 
+		direction = Vector2.DOWN
+		$Sprite.rotation_degrees = 90
+	if Input.is_action_just_pressed("left") and not direction == Vector2.RIGHT: 
+		direction = Vector2.LEFT
+		$Sprite.rotation_degrees = 180
+	if Input.is_action_just_pressed("right") and not direction == Vector2.LEFT: 
+		direction = Vector2.RIGHT
+		$Sprite.rotation_degrees = 0
 	
 	if Input.is_action_just_pressed("run"): _set_speed(normal_speed / 2)
 	elif Input.is_action_just_released("run"): _set_speed(normal_speed)
@@ -65,7 +74,7 @@ func _body_gradient_color() -> void:
 	
 	for i in range(body.size()):
 		var value = color_steep * (i + 1);
-		var c = Color(0, 0, value, 1)
+		var c = Color(0, value, 0, 1)
 		body[i].call_deferred("change_texture", c)
 
 func _on_Player_area_entered(area: Area2D) -> void:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cyan.png-8e7c07b27bd60767cf3cb2592249e6e6.stex"
+path="res://.import/pixil-frame-2.png-c84f1e1d1b113bbfb13c4367d1beb889.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Circles/Cyan.png"
-dest_files=[ "res://.import/Cyan.png-8e7c07b27bd60767cf3cb2592249e6e6.stex" ]
+source_file="res://Assets/Snake/pixil-frame-2.png"
+dest_files=[ "res://.import/pixil-frame-2.png-c84f1e1d1b113bbfb13c4367d1beb889.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
