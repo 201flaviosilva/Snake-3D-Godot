@@ -16,18 +16,21 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if get_tree().paused: return
+	if get_tree().paused: return  
 	
-	if Input.is_action_just_pressed("up") and not direction == Vector2.DOWN: 
+	# This will get the direction of the fist body position
+	var fix_direction = direction if not body.size() else (global_position - body[0].global_position) / GLOBALS.GRID_SIZE
+	
+	if Input.is_action_just_pressed("up") and not fix_direction == Vector2.DOWN: 
 		direction = Vector2.UP
 		$Sprite.rotation_degrees = -90
-	if Input.is_action_just_pressed("down") and not direction == Vector2.UP: 
+	if Input.is_action_just_pressed("down") and not fix_direction == Vector2.UP: 
 		direction = Vector2.DOWN
 		$Sprite.rotation_degrees = 90
-	if Input.is_action_just_pressed("left") and not direction == Vector2.RIGHT: 
+	if Input.is_action_just_pressed("left") and not fix_direction == Vector2.RIGHT: 
 		direction = Vector2.LEFT
 		$Sprite.rotation_degrees = 180
-	if Input.is_action_just_pressed("right") and not direction == Vector2.LEFT: 
+	if Input.is_action_just_pressed("right") and not fix_direction == Vector2.LEFT: 
 		direction = Vector2.RIGHT
 		$Sprite.rotation_degrees = 0
 	
@@ -83,5 +86,5 @@ func _on_Player_area_entered(area: Area2D) -> void:
 		var new_body = _add_body(new_body_color)
 		emit_signal("food_eated", new_body, Vector2(-100, -100))
 		_body_gradient_color()
-	elif area.is_in_group("body"):
+	elif area.is_in_group("body") or area.is_in_group("wall"):
 		emit_signal("dead")

@@ -6,7 +6,6 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
-	_random_texture()
 	_randomize_position()
 
 func _random_texture() -> void:
@@ -28,8 +27,15 @@ func _randomize_position() -> void:
 	global_position = Vector2(x, y)
 
 func _on_Apple_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player") and area.is_in_group("body"): _randomize_position()
+	if (area.is_in_group("player") and area.is_in_group("body")) or area.is_in_group("wall") or area.is_in_group("food"):
+		_randomize_position()
 
 func destroy() -> Color:
 	queue_free()
 	return currentColor
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	if anim_name == "Spawn":
+		$AnimationPlayer.play("idle")
+		_random_texture()
+	

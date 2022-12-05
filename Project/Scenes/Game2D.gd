@@ -13,7 +13,7 @@ func _on_Player_food_eated(new_body, position: Vector2) -> void:
 
 func _on_Player_dead() -> void:
 	is_game_over = true
-	$Pause/Label.text = "Game Over\n<Esc>"
+	$Pause/Label.text = "Game Over: " + str(score) + "\n<Esc>"
 	_pause()
 
 func _on_NewFood_timeout() -> void:
