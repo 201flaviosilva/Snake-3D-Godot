@@ -15,12 +15,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Snake 3D"
-run/main_scene="res://Scenes/Game2D.tscn"
+run/main_scene="res://UI/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GLOBALS="*res://GLOBALS.gd"
+_UTILS="*res://UTILS.gd"
 
 [display]
 
