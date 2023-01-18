@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Fonts/PressStart2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI/Menu.gd" type="Script" id=2]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game2D/Player/Player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48

@@ -3,7 +3,7 @@ extends Node2D
 var score: int = 0
 var is_game_over: bool = false
 
-onready var foodScene: PackedScene = preload("res://Food/Apple.tscn")
+onready var foodScene: PackedScene = preload("res://Game2D/Food/Apple.tscn")
 
 func _on_Player_food_eated(new_body, position: Vector2) -> void:
 	score += 1

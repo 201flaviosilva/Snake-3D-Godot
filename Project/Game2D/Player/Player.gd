@@ -8,7 +8,7 @@ export (float, 0.1, 1) var normal_speed: float = 0.2
 var direction: Vector2 = Vector2.RIGHT
 var speed: float = normal_speed
 
-onready var BodyPart: PackedScene = preload("res://Player/BodyPart.tscn")
+onready var BodyPart: PackedScene = preload("res://Game2D/Player/BodyPart.tscn")
 var body = []
 
 func _ready() -> void:
