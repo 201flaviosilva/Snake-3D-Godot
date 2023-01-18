@@ -8,7 +8,7 @@ func _on_Play2DBTN_pressed():
 	get_tree().change_scene("res://Game2D/Scenes/Game2D.tscn")
 
 func _on_Play3DBTN_pressed():
-	print("Game 3D")
+	get_tree().change_scene("res://Game3D/Game3D.tscn")
 
 func _on_InstructionsBTN_pressed():
 	print("Instructions")
